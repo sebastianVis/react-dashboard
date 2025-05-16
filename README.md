@@ -19,3 +19,13 @@ A responsive ticket assignment dashboard built with Next.js, TypeScript, Tailwin
 - @tanstack/react-table
 - Axios
 - Vercel
+
+## Recent Commits
+
+- **d8841d6** feat:
+  - Fixed column size
+  - Added category
+  - Deleted Sidebar
+  - Translation
+  - Lucide Icons
+  - New endpoints
