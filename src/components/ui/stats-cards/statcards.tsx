@@ -19,25 +19,28 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { Ticket } from "../table/columns";
+import { Activity, CheckCircle, Clock, Users } from "lucide-react";
 
 interface StatsCardsProps {
-  tickets: Ticket[]; // Consider typing this better in future (e.g. Ticket[])
+  tickets: number;
 }
 
 export default function StatsCards({
   tickets,
 }: StatsCardsProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
       {/* Total Open Tickets */}
       <Card>
         <CardHeader>
-          <CardDescription className="font-medium text-sm text-muted-foreground">
-            Total Open Tickets
-          </CardDescription>
+            <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium">
+              <CardDescription className="font-medium text-sm text-muted-foreground mr-auto">
+                Tickets Abiertos
+              </CardDescription>
+              <Activity className="w-4 h-4" />
+            </div>
           <CardTitle className="text-3xl font-semibold tabular-nums">
-            {tickets.length}
+            {tickets}
           </CardTitle>
         </CardHeader>
       </Card>
@@ -45,9 +48,12 @@ export default function StatsCards({
       {/* Tickets assigned today (currently hardcoded) */}
       <Card>
         <CardHeader>
-          <CardDescription className="font-medium text-sm text-muted-foreground">
-            Assigned Today
-          </CardDescription>
+            <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium">
+              <CardDescription className="font-medium text-sm text-muted-foreground mr-auto">
+                Tickets Asignados Hoy
+              </CardDescription>
+              <CheckCircle className="w-4 h-4" />
+            </div>
           <CardTitle className="text-3xl font-semibold tabular-nums">3</CardTitle>
         </CardHeader>
       </Card>
@@ -55,9 +61,12 @@ export default function StatsCards({
       {/* Average response time (currently hardcoded) */}
       <Card>
         <CardHeader>
-          <CardDescription className="font-medium text-sm text-muted-foreground">
-            Average Response Time
-          </CardDescription>
+            <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium">
+              <CardDescription className="font-medium text-sm text-muted-foreground mr-auto">
+                Tiempo Promedio de Respuesta
+              </CardDescription>
+              <Clock className="w-4 h-4" />
+            </div>
           <CardTitle className="text-3xl font-semibold tabular-nums">2</CardTitle>
         </CardHeader>
       </Card>
@@ -65,9 +74,12 @@ export default function StatsCards({
       {/* Number of active technicians (currently hardcoded) */}
       <Card>
         <CardHeader>
-          <CardDescription className="font-medium text-sm text-muted-foreground">
-            Active Technicians
-          </CardDescription>
+            <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium">
+              <CardDescription className="font-medium text-sm text-muted-foreground mr-auto">
+                Tecnicos Activos
+              </CardDescription>
+              <Users className="w-4 h-4" />
+            </div>
           <CardTitle className="text-3xl font-semibold tabular-nums">1</CardTitle>
         </CardHeader>
       </Card>

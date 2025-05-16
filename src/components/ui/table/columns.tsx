@@ -1,5 +1,6 @@
 "use client";
 
+import { CATEGORY_LABELS, CATEGORY_STYLES } from "@/lib/categoryConfig";
 /**
  * Column definitions for the Ticket table.
  *
@@ -32,23 +33,52 @@ export type Ticket = {
 export const columns: ColumnDef<Ticket>[] = [
   {
     accessorKey: "id",
-    header: "ID",
+    header: "Tiquete",
+    cell: ({ row }) => {
+      const id = row.getValue("id") as number; //This might not be the best practices.
+      const asunto = row.original.asunto as string;
+      return (
+        <div className="items-center text-left gap-2">
+          <div className="text-md font-bold text-gray-900">
+            {id}
+          </div>
+          <div className="text-sm text-gray-500">
+            {asunto}
+          </div>
+        </div>
+      );
+    }
   },
   {
     accessorKey: "cliente",
     header: "Cliente",
   },
   {
-    accessorKey: "asunto",
-    header: "Asunto",
-  },
-  {
     accessorKey: "categoria",
     header: "Categoría",
+    cell: ({ row }) => {
+      const categoria = row.getValue("categoria") as string;
+      const label = CATEGORY_LABELS[categoria] || categoria;
+      const style = CATEGORY_STYLES[categoria] || "bg-gray-400 text-white";
+
+      return (
+        <div className={`inline-block px-3 py-1 text-xs font-semibold rounded-full ${style}`}>
+          {label}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "nombre_tecnico",
     header: "Técnico",
+    cell: ({ row }) => {
+      const nombreTecnico = row.getValue("nombre_tecnico") as string;
+      return (
+        <div className="text-sm text-gray-500">
+          {nombreTecnico || "Sin asignar"}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "fecha_soporte",

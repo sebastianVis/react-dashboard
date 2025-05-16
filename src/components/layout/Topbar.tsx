@@ -15,7 +15,7 @@ export default function Topbar() {
   return (
     <header className="w-full bg-white h-16 border-b p-6 flex items-center justify-between">
       {/* Dashboard Title */}
-      <h1 className="text-lg font-semibold text-gray-800">Dashboard</h1>
+      <h1 className="text-lg font-semibold text-gray-800">Coordinador Tiquetes</h1>
 
       {/* Right-side section: currently contains only a placeholder avatar */}
       <div className="flex items-center gap-4">

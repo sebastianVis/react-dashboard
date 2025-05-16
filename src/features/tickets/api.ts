@@ -12,9 +12,13 @@ import api from "@/lib/api";
  * const tickets = await fetchTickets();
  */
 
-export async function fetchTickets() {
-  console.log("Fetching:", api.defaults.baseURL + "/tickets/get_data");
-  const response = await api.get("/tickets/get_data");
+export async function fetchOpenTickets() {
+  const response = await api.get("/open_tickets/fetch");
+  return response.data;
+}
+
+export async function fetchAmmountOpenTickets() {
+  const response = await api.get("/open_tickets/count");
   return response.data;
 }
   
