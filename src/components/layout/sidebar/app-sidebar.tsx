@@ -1,5 +1,4 @@
 import * as React from "react"
-import { SearchForm } from "@/components/layout/sidebar/search-form"
 import {
   Sidebar,
   SidebarContent,

@@ -19,9 +19,10 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { Ticket } from "../table/columns";
 
 interface StatsCardsProps {
-  tickets: any[]; // Consider typing this better in future (e.g. Ticket[])
+  tickets: Ticket[]; // Consider typing this better in future (e.g. Ticket[])
 }
 
 export default function StatsCards({
