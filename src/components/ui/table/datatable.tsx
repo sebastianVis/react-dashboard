@@ -114,7 +114,7 @@ export function DataTable<TData, TValue>({
       {/* Pagination Controls */}
       <div className="flex flex-col sm:flex-row items-center justify-between py-4 gap-2">
         <div className="text-sm text-muted-foreground">
-          Rows per page:
+          Filas por página:
           <select
             className="ml-2 border border-gray-300 rounded px-2 py-1"
             value={pagination.pageSize}
@@ -135,10 +135,10 @@ export function DataTable<TData, TValue>({
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            Previous
+            Anterior
           </Button>
           <span className="text-sm text-gray-600">
-            Page {table.getState().pagination.pageIndex + 1} of{" "}
+            Página {table.getState().pagination.pageIndex + 1} de{" "}
             {table.getPageCount()}
           </span>
           <Button
@@ -147,7 +147,7 @@ export function DataTable<TData, TValue>({
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            Next
+            Siguiente
           </Button>
         </div>
       </div>
