@@ -26,8 +26,8 @@ export default async function DashboardHome() {
       <div className="w-full rounded-xl border border-gray-200 shadow-md bg-white p-6 mt-3">
         {/* Title and subtitle */}
         <div className="mb-4">
-          <h2 className="text-2xl font-bold text-gray-900">Tiquetes Recientes</h2>
-          <p className="text-sm text-gray-500">Informacion de los ultimos tiquetes</p>
+          <h2 className="text-2xl font-bold text-gray-900">Tickets Recientes</h2>
+          <p className="text-sm text-gray-500">Informacion de los ultimos Tickets</p>
         </div>
 
         {/* Table */}

@@ -33,7 +33,7 @@ export type Ticket = {
 export const columns: ColumnDef<Ticket>[] = [
   {
     accessorKey: "id",
-    header: "Tiquete",
+    header: "Ticket",
     cell: ({ row }) => {
       const id = row.getValue("id") as number; //This might not be the best practices.
       const asunto = row.original.asunto as string;
