@@ -48,7 +48,7 @@ export default function StatsCards({
               </CardDescription>
               <Activity className="w-4 h-4" />
             </div>
-          <CardTitle className="text-3xl font-semibold tabular-nums">
+          <CardTitle className="text-5xl font-semibold tabular-nums">
             {tickets}
           </CardTitle>
         </CardHeader>
@@ -63,7 +63,7 @@ export default function StatsCards({
               </CardDescription>
               <CheckCircle className="w-4 h-4" />
             </div>
-          <CardTitle className="text-3xl font-semibold tabular-nums">3</CardTitle>
+          <CardTitle className="text-5xl font-semibold tabular-nums">3</CardTitle>
         </CardHeader>
       </Card>
 
@@ -78,12 +78,12 @@ export default function StatsCards({
             <Clock className="w-4 h-4" />
           </div>
 
-          {/* Four rows */}
-          <CardTitle className="space-y-1">
+          {/* Grid layout: 2 columns */}
+          <CardTitle className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
             {avgResponseTimes.map(({ categoria, dias_promedio }) => (
               <div
                 key={categoria}
-                className="flex items-center gap-4 mt-2"
+                className="flex items-center gap-4 justify-between"
               >
                 {/* left: coloured badge with the category */}
                 <Badge
@@ -104,6 +104,7 @@ export default function StatsCards({
         </CardHeader>
       </Card>
 
+
       {/* Number of active technicians (currently hardcoded) */}
       <Card>
         <CardHeader>
@@ -113,7 +114,7 @@ export default function StatsCards({
               </CardDescription>
               <Users className="w-4 h-4" />
             </div>
-          <CardTitle className="text-3xl font-semibold tabular-nums">1</CardTitle>
+          <CardTitle className="text-5xl font-semibold tabular-nums">1</CardTitle>
         </CardHeader>
       </Card>
     </div>
