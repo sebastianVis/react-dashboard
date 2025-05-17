@@ -83,11 +83,11 @@ export default function StatsCards({
             {avgResponseTimes.map(({ categoria, dias_promedio }) => (
               <div
                 key={categoria}
-                className="flex items-center justify-between"
+                className="flex items-center gap-4 mt-2"
               >
                 {/* left: coloured badge with the category */}
                 <Badge
-                  className={`inline-block px-3 py-1 text-xs font-semibold rounded-full w-40 text-center ${styleFor(
+                  className={`inline-block px-3 py-1 text-xs font-semibold rounded-full text-center ${styleFor(
                     categoria,
                   )}`}
                 >
