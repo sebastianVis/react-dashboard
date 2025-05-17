@@ -34,3 +34,9 @@ A responsive ticket assignment dashboard built with Next.js, TypeScript, Tailwin
   - Removed hardcoded version of avg response time cards.
   - New endpoint fetch.
   - New utils and Badge component to render category
+ 
+- **50fcd86** feat:
+  - Added technicias workload component
+  - New endpoint for technicias workload
+  - Fixed visibility issues
+
