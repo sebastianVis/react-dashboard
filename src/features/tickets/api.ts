@@ -22,8 +22,13 @@ export async function fetchAmmountOpenTickets() {
   return response.data;
 }
   
+export async function fetchTechniciansTickets() {
+  const response = await api.get("/open_tickets/by_technician_and_category");
+  return response.data;
+}
+
 export async function fetchAvgResponseTime() {
   const response = await api.get("/closed_tickets/average_response_time");
   return response.data;
 }
-  
+
