@@ -18,6 +18,7 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
+  CardContent,
 } from "@/components/ui/card";
 import { labelFor, styleFor } from "@/lib/categoryConfig";
 import { Activity, CheckCircle, Clock } from "lucide-react";
@@ -53,10 +54,14 @@ export default function StatsCards({
               </CardDescription>
               <Activity className="w-4 h-4" />
             </div>
-          <CardTitle className="text-7xl font-semibold tabular-nums">
-            {tickets}
-          </CardTitle>
         </CardHeader>
+        <CardContent>
+          <div className="flex-1 flex items-center justify-center">
+            <CardTitle className="text-7xl font-semibold tabular-nums">
+              {tickets}
+            </CardTitle>
+          </div>
+        </CardContent>
       </Card>
 
       {/* Tickets assigned today (currently hardcoded) */}
@@ -68,8 +73,14 @@ export default function StatsCards({
               </CardDescription>
               <CheckCircle className="w-4 h-4" />
             </div>
-          <CardTitle className="text-7xl font-semibold tabular-nums">3</CardTitle>
         </CardHeader>
+        <CardContent>
+          <div className="flex-1 flex items-center justify-center">
+            <CardTitle className="text-7xl font-semibold tabular-nums">
+              1
+            </CardTitle>
+          </div>
+        </CardContent>
       </Card>
 
       {/*Avg Response Time cards w Endpoint*/}
@@ -84,7 +95,7 @@ export default function StatsCards({
           </div>
 
           {/* Grid layout: 2 columns */}
-          <CardTitle className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8">
+          <CardTitle className="mt-4 grid gap-3">
             {avgResponseTimes.map(({ categoria, dias_promedio }) => (
               <div
                 key={categoria}
