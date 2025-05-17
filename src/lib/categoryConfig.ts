@@ -23,3 +23,20 @@ export const CATEGORY_LABELS: Record<string, string> = {
   Instalacion: "Instalación",
   Soporte: "Soporte",
 };
+
+/** All known category keys (union type like "Retiro" | "Soporte" | "Instalacion") */
+export type Category = keyof typeof CATEGORY_LABELS;
+
+/**
+ * Returns the Tailwind classes for a category badge,
+ * or a neutral grey if the category isn’t mapped.
+ */
+export const styleFor = (c: string): string =>
+  CATEGORY_STYLES[c as Category] ?? "bg-gray-300 text-gray-800";
+
+/**
+ * Returns the display label for a category,
+ * or the raw category name as a fallback.
+ */
+export const labelFor = (c: string): string =>
+  CATEGORY_LABELS[c as Category] ?? c;

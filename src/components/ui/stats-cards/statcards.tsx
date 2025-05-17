@@ -19,14 +19,23 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { labelFor, styleFor } from "@/lib/categoryConfig";
 import { Activity, CheckCircle, Clock, Users } from "lucide-react";
+import Badge from "../badge";
+
+export interface AvgResponseTime {
+  categoria: string;
+  dias_promedio: string;
+}
 
 interface StatsCardsProps {
   tickets: number;
+  avgResponseTimes: AvgResponseTime[];
 }
 
 export default function StatsCards({
   tickets,
+  avgResponseTimes
 }: StatsCardsProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -58,16 +67,40 @@ export default function StatsCards({
         </CardHeader>
       </Card>
 
-      {/* Average response time (currently hardcoded) */}
+      {/*Avg Response Time cards w Endpoint*/}
       <Card>
         <CardHeader>
-            <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium">
-              <CardDescription className="font-medium text-sm text-muted-foreground mr-auto">
-                Tiempo Promedio de Respuesta
-              </CardDescription>
-              <Clock className="w-4 h-4" />
-            </div>
-          <CardTitle className="text-3xl font-semibold tabular-nums">2</CardTitle>
+          {/* Header line */}
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <CardDescription className="font-medium mr-auto">
+              Tiempo Promedio de Respuesta (Días)
+            </CardDescription>
+            <Clock className="w-4 h-4" />
+          </div>
+
+          {/* Four rows */}
+          <CardTitle className="space-y-1">
+            {avgResponseTimes.map(({ categoria, dias_promedio }) => (
+              <div
+                key={categoria}
+                className="flex items-center justify-between"
+              >
+                {/* left: coloured badge with the category */}
+                <Badge
+                  className={`inline-block px-3 py-1 text-xs font-semibold rounded-full w-40 text-center ${styleFor(
+                    categoria,
+                  )}`}
+                >
+                  {labelFor(categoria)}
+                </Badge>
+
+                {/* right: plain text number, aligned with tabular figures */}
+                <span className="tabular-nums font-semibold">
+                  {Number(dias_promedio).toFixed(2)}
+                </span>
+              </div>
+            ))}
+          </CardTitle>
         </CardHeader>
       </Card>
 

@@ -22,3 +22,8 @@ export async function fetchAmmountOpenTickets() {
   return response.data;
 }
   
+export async function fetchAvgResponseTime() {
+  const response = await api.get("/closed_tickets/average_response_time");
+  return response.data;
+}
+  

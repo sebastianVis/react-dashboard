@@ -1,12 +1,14 @@
 import { DataTable } from "@/components/ui/table/datatable";
 import StatsCards from "@/components/ui/stats-cards/statcards";
-import { fetchAmmountOpenTickets, fetchOpenTickets } from "@/features/tickets/api";
+import { fetchAmmountOpenTickets, fetchAvgResponseTime, fetchOpenTickets } from "@/features/tickets/api";
 import { columns } from "@/components/ui/table/columns";
 
 export default async function DashboardHome() {
   const tickets = await fetchOpenTickets();
   const ammountOpenTickets = await fetchAmmountOpenTickets();
+  const AvgResponseTimes = await fetchAvgResponseTime();
 
+  console.log(AvgResponseTimes)
   return (
     <section className="px-6 md:px-10 py-6 text-gray-900">
       {/* Headers & Basic info */}
@@ -17,6 +19,7 @@ export default async function DashboardHome() {
       {/* Stats Cards */}
       <StatsCards
         tickets={ammountOpenTickets}
+        avgResponseTimes={AvgResponseTimes}
       />
 
       {/* Table */}
