@@ -20,7 +20,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { labelFor, styleFor } from "@/lib/categoryConfig";
-import { Activity, CheckCircle, Clock, Users } from "lucide-react";
+import { Activity, CheckCircle, Clock } from "lucide-react";
 import Badge from "../badge";
 import { PiechartTickets } from "../piechart/Piechart";
 
