@@ -22,6 +22,9 @@ import {
 import { labelFor, styleFor } from "@/lib/categoryConfig";
 import { Activity, CheckCircle, Clock, Users } from "lucide-react";
 import Badge from "../badge";
+import { PiechartTickets } from "../piechart/Piechart";
+
+type TicketData = Record<string, number>
 
 export interface AvgResponseTime {
   categoria: string;
@@ -31,16 +34,18 @@ export interface AvgResponseTime {
 interface StatsCardsProps {
   tickets: number;
   avgResponseTimes: AvgResponseTime[];
+  noAssigned: TicketData;
 }
 
 export default function StatsCards({
   tickets,
-  avgResponseTimes
+  avgResponseTimes,
+  noAssigned,
 }: StatsCardsProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
       {/* Total Open Tickets */}
-      <Card>
+      <Card className="h-full flex flex-col">
         <CardHeader>
             <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium">
               <CardDescription className="font-medium text-sm text-muted-foreground mr-auto">
@@ -48,14 +53,14 @@ export default function StatsCards({
               </CardDescription>
               <Activity className="w-4 h-4" />
             </div>
-          <CardTitle className="text-5xl font-semibold tabular-nums">
+          <CardTitle className="text-7xl font-semibold tabular-nums">
             {tickets}
           </CardTitle>
         </CardHeader>
       </Card>
 
       {/* Tickets assigned today (currently hardcoded) */}
-      <Card>
+      <Card className="h-full flex flex-col">
         <CardHeader>
             <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium">
               <CardDescription className="font-medium text-sm text-muted-foreground mr-auto">
@@ -63,12 +68,12 @@ export default function StatsCards({
               </CardDescription>
               <CheckCircle className="w-4 h-4" />
             </div>
-          <CardTitle className="text-5xl font-semibold tabular-nums">3</CardTitle>
+          <CardTitle className="text-7xl font-semibold tabular-nums">3</CardTitle>
         </CardHeader>
       </Card>
 
       {/*Avg Response Time cards w Endpoint*/}
-      <Card>
+      <Card className="h-full flex flex-col">
         <CardHeader>
           {/* Header line */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -79,7 +84,7 @@ export default function StatsCards({
           </div>
 
           {/* Grid layout: 2 columns */}
-          <CardTitle className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <CardTitle className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8">
             {avgResponseTimes.map(({ categoria, dias_promedio }) => (
               <div
                 key={categoria}
@@ -106,17 +111,10 @@ export default function StatsCards({
 
 
       {/* Number of active technicians (currently hardcoded) */}
-      <Card>
-        <CardHeader>
-            <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium">
-              <CardDescription className="font-medium text-sm text-muted-foreground mr-auto">
-                Tecnicos Activos
-              </CardDescription>
-              <Users className="w-4 h-4" />
-            </div>
-          <CardTitle className="text-5xl font-semibold tabular-nums">1</CardTitle>
-        </CardHeader>
-      </Card>
+      <div className="h-full flex flex-col">
+        <PiechartTickets data={noAssigned}/>
+      </div>
+      
     </div>
   );
 }

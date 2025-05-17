@@ -23,12 +23,8 @@ export default async function DashboardHome() {
       <StatsCards
         tickets={ammountOpenTickets}
         avgResponseTimes={AvgResponseTimes}
+        noAssigned={ticketsNotAssigned}
       />
-
-      {/* Piechart */}
-      <div className="w-full rounded-xl border border-gray-200 shadow-md bg-white p-6 mt-3">
-        <PiechartTickets data={ticketsNotAssigned}/>
-      </div>
       
       {/* Table */}
       <div className="w-full rounded-xl border border-gray-200 shadow-md bg-white p-6 mt-3">
