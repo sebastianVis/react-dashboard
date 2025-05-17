@@ -65,7 +65,7 @@ export function PiechartTickets({ data }: PiechartTicketsProps) {
     <Card className="flex flex-col">
       <CardHeader className="items-center pb-0">
         <CardTitle>
-          <h2 className="text-2xl font-bold text-gray-900">Tickets Recientes</h2>
+          <h2 className="text-2xl font-bold text-gray-900">Tickets No Asignados</h2>
           <p className="text-sm text-gray-500 font-normal">
             Información de los tickets que no están asignados actualmente.
           </p>
