@@ -29,3 +29,8 @@ A responsive ticket assignment dashboard built with Next.js, TypeScript, Tailwin
   - Translation
   - Lucide Icons
   - New endpoints
+ 
+- **e2f963e** feat:
+  - Removed hardcoded version of avg response time cards.
+  - New endpoint fetch.
+  - New utils and Badge component to render category
