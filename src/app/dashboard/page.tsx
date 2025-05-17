@@ -3,7 +3,6 @@ import StatsCards from "@/components/ui/stats-cards/statcards";
 import { fetchAmmountOpenTickets, fetchAvgResponseTime, fetchOpenTickets, fetchTechniciansTickets, fetchTicketsNotAssigned } from "@/features/tickets/api";
 import { columns } from "@/components/ui/table/columns";
 import TechnicianList from "@/components/ui/technicianstats/TechnicianList";
-import { PiechartTickets } from "@/components/ui/piechart/Piechart";
 
 export default async function DashboardHome() {
   const tickets = await fetchOpenTickets();
