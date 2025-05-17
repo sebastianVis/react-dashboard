@@ -27,8 +27,15 @@ export async function fetchTechniciansTickets() {
   return response.data;
 }
 
+export async function fetchTicketsNotAssigned() {
+  const response = await api.get("/open_tickets/not_assigned_by_category");
+  return response.data;
+}
+
 export async function fetchAvgResponseTime() {
   const response = await api.get("/closed_tickets/average_response_time");
   return response.data;
 }
+
+
 
