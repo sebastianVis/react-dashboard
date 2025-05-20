@@ -1,6 +1,9 @@
 "use client";
 
 import { CATEGORY_LABELS, CATEGORY_STYLES } from "@/lib/categoryConfig";
+import { ColumnDef } from "@tanstack/react-table";
+import { PriorityBadge } from "../priority-badge";
+
 /**
  * Column definitions for the Ticket table.
  *
@@ -15,8 +18,6 @@ import { CATEGORY_LABELS, CATEGORY_STYLES } from "@/lib/categoryConfig";
  * temporarily commented out to avoid hydration issues in server/client mismatch.
  */
 
-import { ColumnDef } from "@tanstack/react-table";
-
 export type Ticket = {
   id: number;
   cliente: string;
@@ -28,6 +29,8 @@ export type Ticket = {
   numero_tecnico: string | null;
   fecha_soporte: string;
   fecha_cerrado: string;
+  sin_servicio_flag: number;
+  dias_desde_creacion: number;
 };
 
 export const columns: ColumnDef<Ticket>[] = [
@@ -35,19 +38,23 @@ export const columns: ColumnDef<Ticket>[] = [
     accessorKey: "id",
     header: "Ticket",
     cell: ({ row }) => {
-      const id = row.getValue("id") as number; //This might not be the best practices.
-      const asunto = row.original.asunto as string;
+      const id = row.getValue("id") as number;
+      const asunto = row.original.asunto;
+      const isPriority = row.original.sin_servicio_flag === 1;
+
       return (
-        <div className="items-center text-left gap-2">
-          <div className="text-md font-bold text-gray-900">
-            {id}
+        <div className="items-start text-left gap-1 space-y-1">
+          {/* Ticket ID + optional priority badge */}
+          <div className="flex items-center gap-2">
+            <span className="text-md font-bold text-gray-900">{id}</span>
+            {isPriority && <PriorityBadge />}
           </div>
-          <div className="text-sm text-gray-500">
-            {asunto}
-          </div>
+
+          {/* Asunto */}
+          <div className="text-sm text-gray-500">{asunto}</div>
         </div>
       );
-    }
+    },
   },
   {
     accessorKey: "cliente",
@@ -99,4 +106,14 @@ export const columns: ColumnDef<Ticket>[] = [
     //   return new Date(value).toLocaleString();
     // },
   },
+  {
+    accessorKey: "dias_desde_creacion",
+    header: "Dias desde Creación",
+    // Temporarily comment out the formatting to avoid hydration issues
+    // cell: ({ getValue }) => {
+    //   const value = getValue() as string;
+    //   if (value === "0000-00-00 00:00:00") return "Abierto";
+    //   return new Date(value).toLocaleString();
+    // },
+  }
 ];

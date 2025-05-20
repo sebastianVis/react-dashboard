@@ -5,6 +5,7 @@ import { DataTable } from "@/components/ui/table/datatable";
 import { fetchAssignedTickets, fetchTechniciansResp } from "@/features/tickets/api";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import TechnicianResponsibilities from "@/components/ui/techniciansresponsability/techniciansresponsabilities";
+import { getTechnicianDisplayName } from "@/lib/labels";
 
 /**
  * Displays a page listing all tickets assigned to technicians.
@@ -41,7 +42,7 @@ export default async function TechnicianTicketsPage() {
             <Card key={technicianName} className="shadow-md">
               {/* Technician name as card header */}
               <CardHeader>
-                <CardTitle className="text-lg">{technicianName}</CardTitle>
+                <CardTitle className="text-lg">{getTechnicianDisplayName(technicianName)}</CardTitle>
               </CardHeader>
 
               {/* Render their tickets using the shared DataTable component */}

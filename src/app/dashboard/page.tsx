@@ -10,6 +10,8 @@ export default async function DashboardHome() {
   const AvgResponseTimes = await fetchAvgResponseTime();
   const techniciansTickets = await fetchTechniciansTickets();
   const ticketsNotAssigned = await fetchTicketsNotAssigned();
+
+  console.log(tickets);
   return (
     <section className="px-6 md:px-10 py-6 text-gray-900">
       {/* Headers & Basic info */}
