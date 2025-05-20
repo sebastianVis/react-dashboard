@@ -39,9 +39,13 @@ A responsive ticket assignment dashboard built with Next.js, TypeScript, Tailwin
   - Added technicias workload component
   - New endpoint for technicias workload
   - Fixed visibility issues
- 
+  
 - **af8f2a5** feat:
   - Added new endpoint for assigned tickets
   - Added new "asignacion" page in order to display assigned tickets.
   - Commented components.
+
+- **46d87c5** feat:
+  - Added new endpoint for roles.
+  - New technicians roles component.
 
