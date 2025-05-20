@@ -48,4 +48,9 @@ A responsive ticket assignment dashboard built with Next.js, TypeScript, Tailwin
 - **46d87c5** feat:
   - Added new endpoint for roles.
   - New technicians roles component.
+ 
+- **01a1c61** feat:
+  - Added priority labels.
+  - New "tecnicos no activos" tickets table.
+  - New labels lib to handle req forms.
 
