@@ -39,9 +39,14 @@ export async function fetchAvgResponseTime() {
 
 export async function fetchAssignedTickets() {
   const response = await api.get("/assigner/prioritized_assignments");
-  console.log(response.data);
   return response.data;
 }
+
+export async function fetchTechniciansResp() {
+  const response = await api.get("/assigner/roles");
+  return response.data;
+}
+
 
 
 
