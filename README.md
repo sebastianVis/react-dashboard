@@ -41,7 +41,7 @@ A responsive ticket assignment dashboard built with Next.js, TypeScript, Tailwin
   - Fixed visibility issues
  
 - **af8f2a5** feat:
-  - Added new endpoint for asigned tickets
+  - Added new endpoint for assigned tickets
   - Added new "asignacion" page in order to display assigned tickets.
   - Commented components.
 
