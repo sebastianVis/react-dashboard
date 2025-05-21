@@ -5,7 +5,7 @@ import { Calendar } from "lucide-react";
 export default function DashboardDate() {
   const today = new Date();
 
-  const formattedDate = new Intl.DateTimeFormat("en-US", {
+  const formattedDate = new Intl.DateTimeFormat("es-ES", {
     weekday: "long",
     year: "numeric",
     month: "long",

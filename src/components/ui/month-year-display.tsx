@@ -5,7 +5,7 @@ import { Calendar } from "lucide-react";
 export default function MonthYearDisplay() {
   const today = new Date();
 
-  const formattedMonthYear = new Intl.DateTimeFormat("en-US", {
+  const formattedMonthYear = new Intl.DateTimeFormat("es-ES", {
     month: "long",
     year: "numeric",
   }).format(today);
