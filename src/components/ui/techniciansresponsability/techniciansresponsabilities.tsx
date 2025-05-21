@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { styleFor, labelFor } from "@/lib/categoryConfig";
+import MonthYearDisplay from "../month-year-display";
 
 type ResponsibilitiesMap = Record<string, string>;
 
@@ -35,6 +36,7 @@ export default function TechnicianResponsibilities({ data }: TechnicianResponsib
       {/* Section header */}
       <CardHeader>
         <h2 className="text-2xl font-bold text-gray-900">Asignación</h2>
+        <MonthYearDisplay />
         <p className="text-sm text-gray-500">
           Información sobre el último sorteo de asignación.
         </p>

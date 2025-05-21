@@ -3,6 +3,7 @@ import StatsCards from "@/components/ui/stats-cards/statcards";
 import { fetchAmmountOpenTickets, fetchAvgResponseTime, fetchOpenTickets, fetchTechniciansTickets, fetchTicketsNotAssigned } from "@/features/tickets/api";
 import { columns } from "@/components/ui/table/columns";
 import TechnicianList from "@/components/ui/technicianstats/TechnicianList";
+import DashboardDate from "@/components/ui/dashboard-date";
 
 export default async function DashboardHome() {
   const tickets = await fetchOpenTickets();
@@ -10,13 +11,12 @@ export default async function DashboardHome() {
   const AvgResponseTimes = await fetchAvgResponseTime();
   const techniciansTickets = await fetchTechniciansTickets();
   const ticketsNotAssigned = await fetchTicketsNotAssigned();
-
-  console.log(tickets);
   return (
     <section className="px-6 md:px-10 py-6 text-gray-900">
       {/* Headers & Basic info */}
       <header className="mb-8">
-        <h1 className="text-3xl font-bold">Dashboard</h1>
+        <h1 className="text-3xl font-bold mb-2">Dashboard</h1>
+        <DashboardDate />
       </header>
       {/* Stats Cards */}
       <StatsCards
