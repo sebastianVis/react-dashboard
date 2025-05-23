@@ -21,6 +21,7 @@ export default function Topbar() {
   const links = [
     { href: "/dashboard", label: "Dashboard" },
     { href: "/asignacion", label: "Asignación" },
+    { href: "/formulario", label: "Formulario" },
   ];
 
   return (
